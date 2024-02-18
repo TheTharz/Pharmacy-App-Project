@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-const Main = () => {
+const Admin = () => {
 	const handleLogout = () => {
 		localStorage.removeItem("token");
 		window.location = "/";
@@ -9,7 +9,7 @@ const Main = () => {
 	return (
 		<div className={styles.mainContainer}>
 			<nav className={styles.navbar}>
-				<h1>User dashbord</h1>
+				<h1>Admin dashbord</h1>
 				<button className={styles.whiteBtn} onClick={handleLogout}>
 					Logout
 				</button>
@@ -18,4 +18,4 @@ const Main = () => {
 	);
 };
 
-export default Main;
+export default Admin;

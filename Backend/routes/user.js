@@ -21,7 +21,8 @@ router.post("/", async (req, res) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            password: hashedPassword
+            password: hashedPassword,
+            role: 'user'
         });
         await user.save();
         res.status(201).send({ message: "User saved successfully" });

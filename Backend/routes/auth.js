@@ -2,7 +2,8 @@
 const router = require('express').Router();
 const { User } = require('../models/user');
 const bcrypt = require('bcrypt');
-const Joi = require('joi'); // Fixed casing for Joi
+const Joi = require('joi'); 
+const jwt = require('jsonwebtoken');// Fixed casing for Joi
 
 router.post("/", async (req, res) => {
     try {
@@ -20,12 +21,17 @@ router.post("/", async (req, res) => {
         if (!validPassword) {
             return res.status(401).send({ message: "Invalid password" });
         }
+      
+        const token = jwt.sign({ _id: user._id, role: user.role }, process.env.JWT_PRIVATE_KEY, { expiresIn: "7d" });
 
-        const token = user.generateAuthToken();
-        res.status(200).send({ data: token, message: "Logging Successfully" });
-
+        
+        if (user.role === 'admin') {
+            res.status(200).send({ data: token, message: "Logged in as admin" });
+        } else {
+            res.status(200).send({ data: token, message: "Logged in as user" });
+        }
     } catch (error) {
-        console.error("Error:", error); // Log the error for debugging
+        console.error("Error:", error); 
         res.status(500).send({ message: "Internal Server error" });
     }
 });

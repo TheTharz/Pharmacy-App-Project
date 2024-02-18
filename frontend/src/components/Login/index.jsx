@@ -3,12 +3,14 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./style.module.css";
 
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
+	const navigate = useNavigate();
+	
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
@@ -19,8 +21,19 @@ const Login = () => {
 		try {
 			const url = "http://localhost:8080/api/auth";
 			const { data: res } = await axios.post(url, data);
+        	console.log("Response from server:", res);
+			
 			localStorage.setItem("token", res.data);
-			window.location = "/";
+        localStorage.setItem("role", res.message === "Logged in as admin" ? "admin" : "user");
+        console.log("Role stored in localStorage:", localStorage.getItem("role")); // Log the role
+
+        if (localStorage.getItem("role") === "user") {
+            console.log("Navigating to user dashboard...");
+            navigate("/user");
+        } else {
+            console.log("Navigating to admin dashboard...");
+            navigate("/admin");
+        }
 		} catch (error) {
 			if (
 				error.response &&
