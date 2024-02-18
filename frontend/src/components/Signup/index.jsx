@@ -39,16 +39,9 @@ const Signup = () => {
 		<div className={styles.signup_container}>
 			<div className={styles.signup_form_container}>
 				<div className={styles.left}>
-					<h1>Welcome Back</h1>
-					<Link to="/login">
-						<button type="button" className={styles.white_btn}>
-							Sing in
-						</button>
-					</Link>
-				</div>
-				<div className={styles.right}>
+				<div className={styles.blue_box}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Create Account</h1>
+						
 						<input
 							type="text"
 							placeholder="First Name"
@@ -85,14 +78,32 @@ const Signup = () => {
 							required
 							className={styles.input}
 						/>
+						<div className={styles.space}>
+								
+								</div>
+								<div className={styles.navigate_text} onClick={() => {window.location.href='/login';}}>
+								Already have an account ? Sign In
+								</div>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
 							Sing Up
 						</button>
 					</form>
 				</div>
+				</div>
+				<div className={styles.right}>
+					<div className={styles.login_txt}>
+					<h1>Sign Up</h1>
+					</div>
+					<div className={styles.image}>
+					<img src={require('../image/login_image.png')}  />
+				</div>
+					
+				</div>
 			</div>
+			
 		</div>
+		
 	);
 };
 

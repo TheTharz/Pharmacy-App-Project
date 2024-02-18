@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 const Admin = () => {
 	const handleLogout = () => {
 		localStorage.removeItem("token");
-		window.location = "/";
+		window.location = "/login";
 	};
 
 	return (

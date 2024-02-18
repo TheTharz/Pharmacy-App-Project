@@ -4,6 +4,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Admin from "./components/Admin";
 
+
 function App() {
     const userRole = localStorage.getItem("role");
 
@@ -15,6 +16,9 @@ function App() {
             <Route path="/login" element={<Login />} />
 			<Route path="/admin" element={<Admin />} />
 			<Route path="/user" element={<Main />} />
+         
+ 
+
             <Route path="/" element={<Navigate replace to="/login" />} />
         </Routes>
     );
