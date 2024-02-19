@@ -3,6 +3,7 @@ import Main from "./components/Main";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Admin from "./components/Admin";
+import Dashboard from "./pages/Dashboard";
 
 
 function App() {
@@ -16,12 +17,11 @@ function App() {
             <Route path="/login" element={<Login />} />
 			<Route path="/admin" element={<Admin />} />
 			<Route path="/user" element={<Main />} />
-         
- 
-
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/" element={<Navigate replace to="/login" />} />
         </Routes>
     );
 }
 
 export default App;
+
