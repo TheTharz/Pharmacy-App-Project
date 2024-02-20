@@ -4,6 +4,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Admin from "./components/Admin";
 import Dashboard from "./pages/Dashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 			<Route path="/admin" element={<Admin />} />
 			<Route path="/user" element={<Main />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/admindashboard" element={<AdminDashboard />} />
             <Route path="/" element={<Navigate replace to="/login" />} />
         </Routes>
     );

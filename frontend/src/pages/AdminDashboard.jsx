@@ -1,8 +1,8 @@
-import Navbar from "../components/Navbar";
+import AdminNavbar from "../components/AdminNavbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Dashboard.css';
+import './AdminDashboard.css';
 
-const dashboard = () => {
+const admindashboard = () => {
     const handleLogout = () => {
 		localStorage.removeItem("token");
 		window.location = "/login";
@@ -11,7 +11,7 @@ const dashboard = () => {
     return (
         <div className="d-flex">
             <div className="col-auto">
-            <Navbar/>  
+            <AdminNavbar/>  
            </div >
            <div className="d-flex flex-column">
            <div className="Topbar">
@@ -22,7 +22,7 @@ const dashboard = () => {
             </div>
            </div>
            <div className="d-flex flex-row">
-           <h1 className="heading">Dashboard</h1>
+           <h1 className="heading">Admin Dashboard</h1>
            <div className="d-flex flex-column">
            <h3 className="welcome1">Hello!</h3>
            <h3 className="welcome2">welcome back</h3>
@@ -57,7 +57,7 @@ const dashboard = () => {
             </div>
             <h1 className="heading">Make Your Order Hear</h1>
             <div className="d-flex flex-row">
-                <button className="p_button">ORDER</button>
+                <button className="p_button">Check ORDER</button>
                 <h4 className="text">"Experience top-quality pharmacy products with our convenient app.<br />
                     Enjoy quick, hassle-free service and secure transactions. <br /> 
                     Save time and shop confidently from trusted brands.<br />
@@ -84,4 +84,4 @@ const dashboard = () => {
 };
 
 
-export default dashboard;
+export default admindashboard;

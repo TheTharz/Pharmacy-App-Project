@@ -4,7 +4,7 @@ import './Sidebar.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import '@fortawesome/fontawesome-free/css/all.css';
 
-const Sidebar = () => {
+const AdminSidebar = () => {
     const location = useLocation();
 
     return (
@@ -37,6 +37,12 @@ const Sidebar = () => {
                                 <i className="fas fa-shopping-cart icon"></i> Place Orders
                             </Link>
                         </li>
+                        <div className='space'></div>
+                        <li className="nav-item">
+                            <Link className={`btn nav-link ${location.pathname === '/contact' ? 'active' : ''}`} to="/contact">
+                                <i className="fas fa-shopping-cart icon"></i> Add item
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -47,4 +53,4 @@ const Sidebar = () => {
     );
 };
 
-export default Sidebar;
+export default AdminSidebar;

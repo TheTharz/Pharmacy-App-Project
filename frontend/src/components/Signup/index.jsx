@@ -95,8 +95,8 @@ const Signup = () => {
 					<div className={styles.login_txt}>
 					<h1>Sign Up</h1>
 					</div>
-					<div className={styles.image}>
-					<img src={require('../image/login_image.png')}  />
+					<div className={styles.image}><img src={require('../image/login_image.png')}  />
+					
 				</div>
 					
 				</div>
