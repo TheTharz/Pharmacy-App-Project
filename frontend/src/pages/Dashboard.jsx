@@ -22,7 +22,7 @@ const dashboard = () => {
             </div>
            </div>
            <div className="d-flex flex-row">
-           <h1 className="heading">Dashboard</h1>
+           <h1 className="heading">User Dashboard</h1>
            <div className="d-flex flex-column">
            <h3 className="welcome1">Hello!</h3>
            <h3 className="welcome2">welcome back</h3>
