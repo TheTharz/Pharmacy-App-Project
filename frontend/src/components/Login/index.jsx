@@ -29,10 +29,10 @@ const Login = () => {
 
         if (localStorage.getItem("role") === "user") {
             console.log("Navigating to user dashboard...");
-            navigate("/user");
+            navigate("/dashboard");
         } else {
             console.log("Navigating to admin dashboard...");
-            navigate("/admin");
+            navigate("/admindashboard");
         }
 		} catch (error) {
 			if (

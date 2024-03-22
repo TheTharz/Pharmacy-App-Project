@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Admin from "./components/Admin";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import AddItemPage from "./pages/AddItems";
 
 
 function App() {
@@ -16,9 +17,8 @@ function App() {
             {userRole === "user" && <Route path="/" element={<Main />} />}
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-			<Route path="/admin" element={<Admin />} />
-			<Route path="/user" element={<Main />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/additem" element={<AddItemPage />} />
             <Route path="/admindashboard" element={<AdminDashboard />} />
             <Route path="/" element={<Navigate replace to="/login" />} />
         </Routes>

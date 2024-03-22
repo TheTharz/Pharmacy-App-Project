@@ -20,7 +20,7 @@ const AdminSidebar = () => {
                         <div className='space'></div>
                         <div className='space'></div>
                         <li className="nav-item">
-                            <Link className={`btn nav-link ${location.pathname === '/dashboard' ? 'active' : ''}`} to="/Dashboard">
+                            <Link className={`btn nav-link ${location.pathname === '/admindashboard' ? 'active' : ''}`} to="/AdminDashboard">
                                 <i className="fas fa-home-alt icon"></i> Dashboard
                             </Link>
                         </li>
@@ -39,7 +39,7 @@ const AdminSidebar = () => {
                         </li>
                         <div className='space'></div>
                         <li className="nav-item">
-                            <Link className={`btn nav-link ${location.pathname === '/contact' ? 'active' : ''}`} to="/contact">
+                            <Link className={`btn nav-link ${location.pathname === '/additem' ? 'active' : ''}`} to="/additem">
                                 <i className="fas fa-shopping-cart icon"></i> Add item
                             </Link>
                         </li>
