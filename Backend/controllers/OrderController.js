@@ -38,8 +38,6 @@ const addOrder = async (req, res) => {
 //get all orders
 const getAllOrders = async (req, res) => {
   await Order.find()
-    .populate('user', 'firstName lastName email')
-    .populate('medicines.medicine', 'name price')
     .then((orders) => {
       res.status(200).send({ data: orders });
     })

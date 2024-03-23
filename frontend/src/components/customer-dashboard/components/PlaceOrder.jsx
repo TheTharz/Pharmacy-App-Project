@@ -92,108 +92,114 @@ const PlaceOrder = () => {
   };
 
   return (
-    <div className='container mx-auto px-4 py-8'>
-      <h2 className='text-2xl font-bold mb-4'>Place Order</h2>
-      <div className='mb-4'>
-        <label className='block mb-2'>NIC:</label>
+    <div className='container mx-auto px-4 py-8 grid grid-cols-2 gap-8'>
+      <div>
+        <h2 className='text-2xl font-bold mb-4'>Place Order</h2>
+        <div className='mb-4'>
+          <label className='block mb-2'>NIC:</label>
+          <input
+            type='text'
+            className='w-full border rounded py-2 px-3'
+            value={nic}
+            onChange={(e) => setNic(e.target.value)}
+          />
+        </div>
+        <div className='mb-4'>
+          <label className='block mb-2'>Date of Birth:</label>
+          <input
+            type='date'
+            className='w-full border rounded py-2 px-3'
+            value={dob}
+            onChange={(e) => setDob(e.target.value)}
+          />
+        </div>
+        <div className='mb-4'>
+          <label className='block mb-2'>First Name:</label>
+          <input
+            type='text'
+            className='w-full border rounded py-2 px-3'
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </div>
+        <div className='mb-4'>
+          <label className='block mb-2'>Last Name:</label>
+          <input
+            type='text'
+            className='w-full border rounded py-2 px-3'
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </div>
+        <div className='mb-4'>
+          <label className='block mb-2'>Address:</label>
+          <input
+            type='text'
+            className='w-full border rounded py-2 px-3'
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </div>
+      </div>
+      <div>
+        {/* Rest of your component */}
+        <h3 className='text-lg font-semibold mb-2'>Search Medicines</h3>
         <input
           type='text'
-          className='w-full border rounded py-2 px-3'
-          value={nic}
-          onChange={(e) => setNic(e.target.value)}
+          className='w-full border rounded py-2 px-3 mb-4'
+          placeholder='Search...'
+          value={searchTerm}
+          onChange={handleSearch}
         />
-      </div>
-      <div className='mb-4'>
-        <label className='block mb-2'>Date of Birth:</label>
-        <input
-          type='date'
-          className='w-full border rounded py-2 px-3'
-          value={dob}
-          onChange={(e) => setDob(e.target.value)}
-        />
-      </div>
-      <div className='mb-4'>
-        <label className='block mb-2'>First Name:</label>
-        <input
-          type='text'
-          className='w-full border rounded py-2 px-3'
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-      </div>
-      <div className='mb-4'>
-        <label className='block mb-2'>Last Name:</label>
-        <input
-          type='text'
-          className='w-full border rounded py-2 px-3'
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-      </div>
-      <div className='mb-4'>
-        <label className='block mb-2'>Address:</label>
-        <input
-          type='text'
-          className='w-full border rounded py-2 px-3'
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-        />
-      </div>
-
-      {/* Rest of your component */}
-      <h3 className='text-lg font-semibold mb-2'>Search Medicines</h3>
-      <input
-        type='text'
-        className='w-full border rounded py-2 px-3 mb-4'
-        placeholder='Search...'
-        value={searchTerm}
-        onChange={handleSearch}
-      />
-      <ul>
-        {filteredMedicines.map((medicine) => (
-          <li
-            key={medicine.id}
-            className='flex items-center justify-between mb-2'
-          >
-            <span>
-              {medicine.name} - {medicine.price}
-            </span>
-            <input
-              type='number'
-              min='1'
-              className='border rounded py-1 px-2'
-              value={quantity}
-              onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
-            />
-            <button
-              className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
-              onClick={() => handleAddMedicine(medicine)}
+        <ul>
+          {filteredMedicines.map((medicine) => (
+            <li
+              key={medicine.id}
+              className='flex items-center justify-between mb-2'
             >
-              Add
-            </button>
-          </li>
-        ))}
-      </ul>
-      <h3 className='text-lg font-semibold mt-8 mb-2'>Receipt</h3>
-      <ul>
-        {receipt.map((item) => (
-          <li key={item.id} className='flex items-center justify-between mb-2'>
-            <span>
-              {item.name} - {item.price} - Quantity: {item.quantity} - Subtotal:
-              ${item.subtotal}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <div className='mt-4'>
-        <strong>Total Amount:</strong> ${totalAmount}
+              <span>
+                {medicine.name} - {medicine.price}
+              </span>
+              <input
+                type='number'
+                min='1'
+                className='border rounded py-1 px-2'
+                value={quantity}
+                onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
+              />
+              <button
+                className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+                onClick={() => handleAddMedicine(medicine)}
+              >
+                Add
+              </button>
+            </li>
+          ))}
+        </ul>
+        <h3 className='text-lg font-semibold mt-8 mb-2'>Receipt</h3>
+        <ul>
+          {receipt.map((item) => (
+            <li
+              key={item.id}
+              className='flex items-center justify-between mb-2'
+            >
+              <span>
+                {item.name} - {item.price} - Quantity: {item.quantity} -
+                Subtotal: ${item.subtotal}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <div className='mt-4'>
+          <strong>Total Amount:</strong> ${totalAmount}
+        </div>
+        <button
+          className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4'
+          onClick={handlePlaceOrder}
+        >
+          Place Order
+        </button>
       </div>
-      <button
-        className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4'
-        onClick={handlePlaceOrder}
-      >
-        Place Order
-      </button>
     </div>
   );
 };
