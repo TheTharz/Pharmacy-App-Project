@@ -1,5 +1,7 @@
 import React from 'react';
-import './Dashboard.css';
+import cat1 from '../../pages/image/cat1.png';
+import cat2 from '../../pages/image/cat2.png';
+import cat3 from '../../pages/image/cat3.png';
 
 const CustomerDashboard = () => {
   const handleLogout = () => {
@@ -8,19 +10,19 @@ const CustomerDashboard = () => {
   };
   return (
     <div className='d-flex flex-column'>
-      <div className='Topbar'>
-        <div className='d-flex flex-row'>
-          <button className='lout_button' onClick={handleLogout}>
-            Logout
-          </button>
-        </div>
+      <div className=' flex flex-row bg-blue-600 w-full p-2'>
+        <button
+          className=' rounded-full w-[60 px] text-white bg-blue-500 hover:bg-blue-700 py-2 px-4  ml-auto mr-5'
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
       </div>
-      <div className='d-flex flex-row'>
-        <h1 className='heading'>User Dashboard</h1>
-        <div className='d-flex flex-column'>
-          <h3 className='welcome1'>Hello!</h3>
-          <h3 className='welcome2'>welcome back</h3>
-        </div>
+      <div className='flex flex-row justify-between p-4'>
+        <h1 className=''>User Dashboard</h1>
+        <h1>
+          Hello <span>Welcome</span>
+        </h1>
       </div>
       <h1 className='subheading'>OUR SERVICES</h1>
       <div className='imgbox'></div>
@@ -31,20 +33,28 @@ const CustomerDashboard = () => {
       <div className='d-flex flex-row'>
         <div className='box' style={{ backgroundColor: '#369FFF' }}>
           <h3 className='cat_text'>CATEGORIE1</h3>
-          <div className='cat_imagbox1'></div>
+          <div className='cat_imagbox1'>
+            <img src={cat1} alt='category1' />
+          </div>
         </div>
 
         <div className='box' style={{ backgroundColor: '#FF993A' }}>
           <h3 className='cat_text'>CATEGORIE1</h3>
-          <div className='cat_imagbox2'></div>
+          <div className='cat_imagbox2'>
+            <img src={cat2} alt='category2' />
+          </div>
         </div>
         <div className='box' style={{ backgroundColor: '#8AC53E' }}>
           <h3 className='cat_text'>CATEGORIE1</h3>
-          <div className='cat_imagbox3'></div>
+          <div className='cat_imagbox3'>
+            <img src={cat3} alt='category3' />
+          </div>
         </div>
         <div className='box' style={{ backgroundColor: '#FFD143' }}>
           <h3 className='cat_text'>CATEGORIE1</h3>
-          <div className='cat_imagbox4'></div>
+          <div className='cat_imagbox4'>
+            <img src={cat1} alt='category4' />
+          </div>
         </div>
       </div>
       <h1 className='heading'>Make Your Order Hear</h1>
