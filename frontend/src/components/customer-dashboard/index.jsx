@@ -9,7 +9,7 @@ const CustomerDashboard = () => {
     window.location = '/login';
   };
   return (
-    <div className='d-flex flex-column'>
+    <div className='d-flex flex-column w-full'>
       <div className=' flex flex-row bg-blue-600 w-full p-2'>
         <button
           className=' rounded-full w-[60 px] text-white bg-blue-500 hover:bg-blue-700 py-2 px-4  ml-auto mr-5'

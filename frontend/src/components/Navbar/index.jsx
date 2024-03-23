@@ -1,50 +1,42 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './Sidebar.css';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import '@fortawesome/fontawesome-free/css/all.css';
+import { Link } from 'react-router-dom';
 
-const Sidebar = () => {
-    const location = useLocation();
-
-    return (
-        <nav className="navbar-sidebar">
-            <div className="container-fluid d-flex flex-column justify-content-between" style={{ height: '100%' }}>
-                <div>
-                    <Link className="navbar-brand" to="/">
-                        {/* Your Brand Logo */}
-                    </Link>
-                    <ul className="navbar-nav flex-column mt-3">
-                        <div className="header">New Pharmacy</div>
-                        <div className='space'></div>
-                        <div className='space'></div>
-                        <div className='space'></div>
-                        <li className="nav-item">
-                            <Link className={`btn nav-link ${location.pathname === '/dashboard' ? 'active' : ''}`} to="/Dashboard">
-                                <i className="fas fa-home-alt icon"></i> Dashboard
-                            </Link>
-                        </li>
-
-                        <div className='space'></div>
-                        <li className="nav-item">
-                            <Link className={`btn nav-link ${location.pathname === '/about' ? 'active' : ''}`} to="/about">
-                                <i className="fas fa-list-alt icon"></i> Categories
-                            </Link>
-                        </li>
-                        <div className='space'></div>
-                        <li className="nav-item">
-                            <Link className={`btn nav-link ${location.pathname === '/contact' ? 'active' : ''}`} to="/contact">
-                                <i className="fas fa-shopping-cart icon"></i> Place Orders
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    {/* Additional content at the bottom of the sidebar */}
-                </div>
-            </div>
-        </nav>
-    );
+const Navbar = () => {
+  return (
+    <nav className='bg-gray-800 p-4'>
+      <div className='container mx-auto flex items-center flex-col min-h-screen overflow-hidden'>
+        <Link to='/' className='text-white text-xl font-bold'>
+          Your Brand Logo
+        </Link>
+        <ul className='flex space-x-4 flex-col justify-evenly items-center'>
+          <li>
+            <Link
+              to='/dashboard'
+              className='text-white hover:text-gray-300 transition duration-300'
+            >
+              Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/about'
+              className='text-white hover:text-gray-300 transition duration-300'
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/contact'
+              className='text-white hover:text-gray-300 transition duration-300'
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 };
 
-export default Sidebar;
+export default Navbar;
