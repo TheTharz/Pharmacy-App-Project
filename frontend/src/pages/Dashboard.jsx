@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Dashboard.css';
 import CustomerDashboard from '../components/customer-dashboard';
 import Categories from '../components/customer-dashboard/components/Categories';
+import PlaceOrder from '../components/customer-dashboard/components/PlaceOrder';
 
 const dashboard = () => {
   return (
@@ -11,7 +12,7 @@ const dashboard = () => {
         <Navbar />
       </div>
       <div className=' overflow-scroll w-full'>
-        <Categories />
+        <PlaceOrder />
       </div>
     </div>
   );

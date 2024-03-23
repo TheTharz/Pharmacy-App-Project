@@ -2,16 +2,30 @@ const mongoose = require('mongoose');
 const joi = require('joi');
 
 const orderSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
+  nicNumber: {
+    type: String,
+    required: true,
+  },
+  DOB: {
+    type: Date,
+    required: true,
+  },
+  address: {
+    type: String,
     required: true,
   },
   medicines: [
     {
       medicine: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Medicine',
+        type: String,
         required: true,
       },
       quantity: {
@@ -26,10 +40,14 @@ const orderSchema = new mongoose.Schema({
   },
 });
 
-//add validations
+// Update validations
 const orderValidate = function (data) {
   const schema = joi.object({
-    user: joi.string().required().label('User'),
+    firstName: joi.string().required().label('First Name'),
+    lastName: joi.string().required().label('Last Name'),
+    nicNumber: joi.string().required().label('NIC Number'),
+    DOB: joi.date().required().label('Date of Birth'),
+    address: joi.string().required().label('Address'),
     medicines: joi
       .array()
       .items(

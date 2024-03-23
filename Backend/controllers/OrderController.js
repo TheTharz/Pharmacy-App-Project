@@ -8,12 +8,20 @@ const addOrder = async (req, res) => {
     return res.status(400).send({ message: error.details[0].message });
   }
 
+  // console.log(req.body);
+
   //add order
   const order = new Order({
     user: req.body.user,
     medicines: req.body.medicines,
     totalAmount: req.body.totalAmount,
+    lastName: req.body.lastName,
+    firstName: req.body.firstName,
+    nicNumber: req.body.nicNumber,
+    DOB: req.body.DOB,
+    address: req.body.address,
   });
+  console.log(order);
 
   await order
     .save()
