@@ -1,50 +1,66 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './Sidebar.css';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import '@fortawesome/fontawesome-free/css/all.css';
+import { Link } from 'react-router-dom';
+import { FaHome, FaClipboardList, FaShoppingCart } from 'react-icons/fa';
+import Logo from '../../pages/image/logo.png';
 
-const Sidebar = () => {
-    const location = useLocation();
+const Navbar = ({ handleNavClick }) => {
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location = '/login';
+  };
+  return (
+    <nav className='bg-gray-800 p-4'>
+      <div className='container mx-auto flex items-center flex-col min-h-screen overflow-hidden'>
+        {/* Your brand logo */}
+        <Link
+          onClick={() => handleNavClick('dashboard')}
+          className='text-white text-xl font-bold flex items-center mb-4'
+        >
+          <img src={Logo} alt='Logo' className='w-auto h-auto mr-2' />
+        </Link>
 
-    return (
-        <nav className="navbar-sidebar">
-            <div className="container-fluid d-flex flex-column justify-content-between" style={{ height: '100%' }}>
-                <div>
-                    <Link className="navbar-brand" to="/">
-                        {/* Your Brand Logo */}
-                    </Link>
-                    <ul className="navbar-nav flex-column mt-3">
-                        <div className="header">New Pharmacy</div>
-                        <div className='space'></div>
-                        <div className='space'></div>
-                        <div className='space'></div>
-                        <li className="nav-item">
-                            <Link className={`btn nav-link ${location.pathname === '/dashboard' ? 'active' : ''}`} to="/Dashboard">
-                                <i className="fas fa-home-alt icon"></i> Dashboard
-                            </Link>
-                        </li>
-
-                        <div className='space'></div>
-                        <li className="nav-item">
-                            <Link className={`btn nav-link ${location.pathname === '/about' ? 'active' : ''}`} to="/about">
-                                <i className="fas fa-list-alt icon"></i> Categories
-                            </Link>
-                        </li>
-                        <div className='space'></div>
-                        <li className="nav-item">
-                            <Link className={`btn nav-link ${location.pathname === '/contact' ? 'active' : ''}`} to="/contact">
-                                <i className="fas fa-shopping-cart icon"></i> Place Orders
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    {/* Additional content at the bottom of the sidebar */}
-                </div>
-            </div>
-        </nav>
-    );
+        {/* Navigation links */}
+        <ul className='flex flex-col items-center space-y-4'>
+          {/* Dashboard link */}
+          <li>
+            <Link
+              className='flex items-center text-white hover:text-gray-300 transition duration-300'
+              onClick={() => handleNavClick('dashboard')}
+            >
+              <FaHome className='w-5 h-5 mr-2' />
+              Dashboard
+            </Link>
+          </li>
+          {/* Categories link */}
+          <li>
+            <Link
+              className='flex items-center text-white hover:text-gray-300 transition duration-300'
+              onClick={() => handleNavClick('categories')}
+            >
+              <FaClipboardList className='w-5 h-5 mr-2' />
+              Categories
+            </Link>
+          </li>
+          {/* Place Order link */}
+          <li>
+            <Link
+              className='flex items-center text-white hover:text-gray-300 transition duration-300'
+              onClick={() => handleNavClick('placeorder')}
+            >
+              <FaShoppingCart className='w-5 h-5 mr-2' />
+              Place Order
+            </Link>
+          </li>
+        </ul>
+        <button
+          className=' rounded-full w-[60 px] text-white bg-blue-500 hover:bg-blue-700 py-2 px-4  ml-auto mr-5'
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
+      </div>
+    </nav>
+  );
 };
 
-export default Sidebar;
+export default Navbar;

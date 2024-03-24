@@ -1,4 +1,4 @@
-const Medicine = require('../models/Medicine');
+const { Medicine } = require('../models/Medicine');
 const { medicineValidate } = require('../models/Medicine');
 
 //add medicine function to database
@@ -14,6 +14,8 @@ const addMedicine = async (req, res) => {
     price: req.body.price,
     description: req.body.description,
     quantity: req.body.quantity,
+    category: req.body.category,
+    image: req.body.image,
   });
   await medicine
     .save()

@@ -1,0 +1,257 @@
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure the .d-flex container takes up the full width of its parent */
+.d-flex {
+  width: 100%;
+}
+
+/* Ensure the .inner container takes up the full width of the screen */
+.inner {
+  padding-left: 5%;
+  padding-top: 5%;
+  width: 100%;
+}
+
+.inner {
+  padding-left: 5%;
+  padding-top: 5%;
+  width: 100%;
+}
+
+.Topbar {
+  height: 70px;
+  background-color: #d7ecff;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+  padding: 2rem;
+}
+
+.subheading {
+  font-size: 2rem; /* Adjusted for responsiveness */
+  font-weight: bold;
+  color: rgb(87, 86, 86);
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.image img {
+  width: 80%; /* Adjusted for responsiveness */
+  height: 40%; /* Adjusted for responsiveness */
+  border-radius: 20px; /* Adjusted for responsiveness */
+  display: block; /* Ensures the image behaves as a block element */
+  margin: 0 auto; /* Centers the image horizontally */
+}
+
+.d-flex.flex-row {
+  display: flex;
+  justify-content: space-between; /* Distributes space between the boxes */
+}
+
+.box {
+  height: 180px;
+  width: calc(25% - 20px);
+  margin: 2rem; /* Adjusted for responsiveness and space between boxes */
+  border-radius: 25px;
+  background-color: blueviolet;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.p_button {
+  height: 50px;
+  width: 50%; /* Adjusted for responsiveness */
+  max-width: 200px; /* Added for responsiveness */
+  background-color: #369fff;
+  color: #ffffff;
+  border: 3px solid #369fff;
+  font-size: 1.5rem; /* Adjusted for responsiveness */
+  font-weight: 700;
+  margin: 2rem auto;
+  margin-left: 2rem; /* Adjusted for responsiveness */
+  border-radius: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+.p_button:hover {
+  font-size: 1.7rem;
+
+  /* Change background color on hover */
+}
+
+.p_button:active {
+  background-color: #ffffff;
+  color: #797777;
+  border: 3px solid #369fff; /* Change background color when clicked */
+}
+
+.image2 img {
+  width: 40%; /* Adjusted for responsiveness */
+  height: auto; /* Adjusted for responsiveness */
+  border-radius: 20px; /* Adjusted for responsiveness */
+  float: right; /* Aligns the image to the right */
+  margin-top: 1rem; /* Adjusted for responsiveness */
+  margin-left: auto; /* Automatically sets the left margin to fill the remaining space */
+}
+
+.text {
+  font-size: 1.5rem; /* Adjusted for responsiveness */
+  color: rgb(24, 24, 24);
+  text-align: right; /* Adjusted for responsiveness */
+  margin: 0 auto; /* Adjusted for responsiveness */
+  max-width: 100%; /* Added for responsiveness */
+}
+
+.imgbox {
+  height: 350px;
+  width: calc(25% - 20px);
+  margin: 1rem auto; /* Adjusted for responsiveness and space between boxes */
+  border-radius: 25px;
+
+  width: 80%;
+  border: 5px solid #369fff;
+  background-image: url('./image/downimg.png'); /* Add background image */
+  background-size: cover; /* Scale the background image to cover the entire box */
+  background-position: center;
+}
+
+.imgboxlast {
+  height: 250px;
+  width: 20%;
+  border: 5px solid rgb(255, 255, 255); /* Adjusted for responsiveness */
+  float: right;
+  border-radius: 25px;
+  margin: 0 2rem 0 0;
+  background-image: url('./image/downimg.png');
+  background-size: cover; /* Scale the background image to cover the entire box */
+  background-position: center;
+}
+
+.s_button {
+  height: 50px;
+  width: 50%;
+  max-width: 200px;
+  background-color: #ffffff;
+  color: #797777;
+  border: 3px solid #369fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1rem auto;
+  margin-left: auto; /* Align to the right */
+  margin-right: 2rem; /* Added for spacing */
+  border-radius: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.s_button:hover {
+  font-size: 1.7rem;
+
+  /* Change background color on hover */
+}
+
+.s_button:active {
+  background-color: #369fff;
+  color: #ffffff;
+  border: 3px solid #369fff; /* Change background color when clicked */
+}
+.cat_text {
+  font-size: 30px;
+  color: #ffffff;
+  padding: 20px 10px 0px 2rem;
+}
+
+.cat_imagbox1 {
+  width: 4rem;
+  height: 4rem;
+
+  float: right;
+  margin: 1.5rem 1rem 0 0;
+  background-image: url('./image/cat1.png');
+  background-size: cover; /* Scale the background image to cover the entire box */
+  background-position: center;
+}
+.cat_imagbox3 {
+  width: 4rem;
+  height: 4rem;
+
+  float: right;
+  margin: 1.5rem 1rem 0 0;
+  background-image: url('./image/cat1.png');
+  background-size: cover; /* Scale the background image to cover the entire box */
+  background-position: center;
+}
+.cat_imagbox2 {
+  width: 4rem;
+  height: 4rem;
+
+  float: right;
+  margin: 1.5rem 1rem 0 0;
+  background-image: url('./image/cat2.png');
+  background-size: cover; /* Scale the background image to cover the entire box */
+  background-position: center;
+}
+.cat_imagbox4 {
+  width: 4rem;
+  height: 4rem;
+
+  float: right;
+  margin: 1.5rem 1rem 0 0;
+  background-image: url('./image/cat3.png');
+  background-size: cover; /* Scale the background image to cover the entire box */
+  background-position: center;
+}
+.welcome1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #2a48cc;
+  text-align: right;
+  padding-right: 6rem;
+  padding-top: 2rem; /* Aligns the text to the right */
+}
+
+.welcome2 {
+  font-size: 25px;
+  color: #369fff;
+  text-align: right;
+  padding-right: 3rem; /* Aligns the text to the right */
+}
+
+.lout_button {
+  height: 45px;
+  width: 40%;
+  max-width: 200px;
+  background-color: #ffffff;
+  color: #797777;
+  border: 3px solid #369fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.5rem auto;
+  margin-left: auto; /* Align to the right */
+  margin-right: 2rem; /* Added for spacing */
+  border-radius: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.lout_button:hover {
+  font-size: 1.7rem;
+
+  /* Change background color on hover */
+}
+
+.s_button:active {
+  background-color: #369fff;
+  color: #ffffff;
+  border: 3px solid #369fff; /* Change background color when clicked */
+}
+.iconbox {
+  height: 1rem;
+  width: 1rem;
+  background-color: aqua;
+}

@@ -4,20 +4,9 @@ import cat2 from '../../pages/image/cat2.png';
 import cat3 from '../../pages/image/cat3.png';
 
 const CustomerDashboard = () => {
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location = '/login';
-  };
   return (
-    <div className='d-flex flex-column'>
-      <div className=' flex flex-row bg-blue-600 w-full p-2'>
-        <button
-          className=' rounded-full w-[60 px] text-white bg-blue-500 hover:bg-blue-700 py-2 px-4  ml-auto mr-5'
-          onClick={handleLogout}
-        >
-          Logout
-        </button>
-      </div>
+    <div className='d-flex flex-column w-full'>
+      <div className=' flex flex-row bg-blue-600 w-full p-2'></div>
       <div className='flex flex-row justify-between p-4'>
         <h1 className=''>User Dashboard</h1>
         <h1>

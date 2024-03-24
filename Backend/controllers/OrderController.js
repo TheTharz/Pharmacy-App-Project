@@ -1,4 +1,4 @@
-const Order = require('../models/Order');
+const { Order } = require('../models/Order');
 const { orderValidate } = require('../models/Order');
 
 const addOrder = async (req, res) => {
@@ -8,12 +8,20 @@ const addOrder = async (req, res) => {
     return res.status(400).send({ message: error.details[0].message });
   }
 
+  // console.log(req.body);
+
   //add order
   const order = new Order({
     user: req.body.user,
     medicines: req.body.medicines,
     totalAmount: req.body.totalAmount,
+    lastName: req.body.lastName,
+    firstName: req.body.firstName,
+    nicNumber: req.body.nicNumber,
+    DOB: req.body.DOB,
+    address: req.body.address,
   });
+  console.log(order);
 
   await order
     .save()
@@ -30,8 +38,6 @@ const addOrder = async (req, res) => {
 //get all orders
 const getAllOrders = async (req, res) => {
   await Order.find()
-    .populate('user', 'firstName lastName email')
-    .populate('medicines.medicine', 'name price')
     .then((orders) => {
       res.status(200).send({ data: orders });
     })
