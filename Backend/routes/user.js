@@ -1,35 +1,14 @@
 // user.js
-const router = require("express").Router();
-const { User, validate } = require("../models/user");
-const bcrypt = require("bcrypt");
+const router = require('express').Router();
 
-router.post("/", async (req, res) => {
-    try {
-        const { error } = validate(req.body);
-        if (error) {
-            return res.status(400).send({ message: error.details[0].message });
-        }
-        const userExist = await User.findOne({ email: req.body.email });
-        if (userExist) {
-            return res.status(400).send({ message: "User with given email already exists" });
-        }
+const { getAllMedicine } = require('../controllers/MedicineController');
+const { addOrder } = require('../controllers/OrderController');
+const { signUp } = require('../controllers/UserController');
 
-        const salt = await bcrypt.genSalt(Number(process.env.SALT));
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+router.route('/').post(signUp);
 
-        const user = new User({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: hashedPassword,
-            role: 'user'
-        });
-        await user.save();
-        res.status(201).send({ message: "User saved successfully" });
+router.route('/get-all-medicine').get(getAllMedicine);
 
-    } catch (error) {
-        res.status(500).send({ message: "Internal Server error" });
-    }
-});
+router.route('/place-order').post(addOrder);
 
 module.exports = router;
