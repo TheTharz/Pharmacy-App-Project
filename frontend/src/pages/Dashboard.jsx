@@ -21,7 +21,9 @@ const Dashboard = () => {
       </div>
       <div className='overflow-scroll w-full'>
         {/* Render components based on activeComponent state */}
-        {activeComponent === 'dashboard' && <CustomerDashboard />}
+        {activeComponent === 'dashboard' && (
+          <CustomerDashboard setActiveComponent={setActiveComponent} />
+        )}
         {activeComponent === 'categories' && <Categories />}
         {activeComponent === 'placeorder' && <PlaceOrder />}
       </div>

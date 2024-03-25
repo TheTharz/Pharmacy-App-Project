@@ -13,14 +13,11 @@ function App() {
   return (
     <Routes>
       {userRole === 'admin' && <Route path='/' element={<Admin />} />}
-      {userRole === 'user' && <Route path='/' element={<Main />} />}
+      {userRole === 'user' && <Route path='/' element={<Dashboard />} />}
 
       {/* For both admin and user should see this */}
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<Login />} />
-
-      {/* For user */}
-      <Route path='/dashboard' element={<Dashboard />} />
 
       {/* For admin */}
       <Route path='/additem' element={<AddItemPage />} />
