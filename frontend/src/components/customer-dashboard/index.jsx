@@ -2,63 +2,80 @@ import React from 'react';
 import cat1 from '../../pages/image/cat1.png';
 import cat2 from '../../pages/image/cat2.png';
 import cat3 from '../../pages/image/cat3.png';
+import {
+  FaPrescriptionBottleAlt,
+  FaClinicMedical,
+  FaShoppingCart,
+} from 'react-icons/fa';
 
-const CustomerDashboard = () => {
+const CustomerDashboard = ({ setActiveComponent }) => {
   return (
-    <div className='d-flex flex-column w-full'>
-      <div className=' flex flex-row bg-blue-600 w-full p-2'></div>
-      <div className='flex flex-row justify-between p-4'>
-        <h1 className=''>User Dashboard</h1>
-        <h1>
-          Hello <span>Welcome</span>
+    <div className='bg-gray-100 min-h-screen flex flex-col justify-center items-center'>
+      <div className='max-w-4xl w-full px-4 py-8 bg-white rounded-lg shadow-md'>
+        <h1 className='text-4xl font-bold mb-6'>
+          Welcome to <span className=' text-blue-500'>RxBit</span>
         </h1>
-      </div>
-      <h1 className='subheading'>OUR SERVICES</h1>
-      <div className='imgbox'></div>
-      <div className='d-flex flex-row'>
-        <h1 className='subheading'>CATEGORIES</h1>
-        <button className='s_button'>See More...</button>
-      </div>
-      <div className='d-flex flex-row'>
-        <div className='box' style={{ backgroundColor: '#369FFF' }}>
-          <h3 className='cat_text'>CATEGORIE1</h3>
-          <div className='cat_imagbox1'>
-            <img src={cat1} alt='category1' />
-          </div>
-        </div>
 
-        <div className='box' style={{ backgroundColor: '#FF993A' }}>
-          <h3 className='cat_text'>CATEGORIE1</h3>
-          <div className='cat_imagbox2'>
-            <img src={cat2} alt='category2' />
+        {/* Services Section */}
+        <section className='mb-8'>
+          <h2 className='text-2xl font-bold mb-4'>Our Services</h2>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+            <div className='flex flex-col items-center justify-center bg-blue-100 p-4 rounded-lg shadow-md gap-2'>
+              <FaPrescriptionBottleAlt className=' text-blue-900' />
+              <p className='text-lg font-semibold'>Search Medicines</p>
+            </div>
+            <div className='flex flex-col items-center justify-center bg-green-100 p-4 rounded-lg shadow-md gap-2'>
+              <FaClinicMedical className='text-green-900 mr-3' />
+              <p className='text-lg font-semibold'>Browse By Categories</p>
+            </div>
+            <div className='flex flex-col items-center justify-center bg-yellow-100 p-4 rounded-lg shadow-md gap-2'>
+              <FaShoppingCart className='text-yellow-900 mr-3' />
+              <p className='text-lg font-semibold'>Online Orders</p>
+            </div>
           </div>
-        </div>
-        <div className='box' style={{ backgroundColor: '#8AC53E' }}>
-          <h3 className='cat_text'>CATEGORIE1</h3>
-          <div className='cat_imagbox3'>
-            <img src={cat3} alt='category3' />
-          </div>
-        </div>
-        <div className='box' style={{ backgroundColor: '#FFD143' }}>
-          <h3 className='cat_text'>CATEGORIE1</h3>
-          <div className='cat_imagbox4'>
-            <img src={cat1} alt='category4' />
-          </div>
-        </div>
-      </div>
-      <h1 className='heading'>Make Your Order Hear</h1>
-      <div className='d-flex flex-row'>
-        <button className='p_button'>ORDER</button>
-        <h4 className='text'>
-          "Experience top-quality pharmacy products with our convenient app.
-          <br />
-          Enjoy quick, hassle-free service and secure transactions. <br />
-          Save time and shop confidently from trusted brands.
-          <br />
-          Buy here for a seamless shopping experience!"
-        </h4>
+        </section>
 
-        <div className='imgboxlast'></div>
+        {/* Categories Section */}
+        <section className='mb-8'>
+          <div className='flex flex-row items-center justify-between mb-4'>
+            <h2 className='text-2xl font-bold'>Browse Categories</h2>
+
+            <button
+              className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-md'
+              onClick={() => setActiveComponent('categories')}
+            >
+              Try it
+            </button>
+          </div>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+            <div className='bg-purple-100 p-6 rounded-lg shadow-md'>
+              <h3 className='text-xl font-semibold mb-2'>Medicines</h3>
+              <p>Explore a wide range of prescription and OTC medicines.</p>
+            </div>
+            <div className='bg-pink-100 p-6 rounded-lg shadow-md'>
+              <h3 className='text-xl font-semibold mb-2'>Health Supplements</h3>
+              <p>Discover quality supplements for your health needs.</p>
+            </div>
+            <div className='bg-orange-100 p-6 rounded-lg shadow-md'>
+              <h3 className='text-xl font-semibold mb-2'>Personal Care</h3>
+              <p>Shop for personal care products for your well-being.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Place Order Section */}
+        <section>
+          <h2 className='text-2xl font-bold mb-4'>Place Your Order</h2>
+          <p className='mb-6'>
+            Browse our products and place your order securely online.
+          </p>
+          <button
+            className='bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md'
+            onClick={() => setActiveComponent('placeorder')}
+          >
+            Start Shopping
+          </button>
+        </section>
       </div>
     </div>
   );
