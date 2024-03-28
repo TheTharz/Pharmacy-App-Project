@@ -28,7 +28,7 @@ const Login = () => {
 
       if (localStorage.getItem('role') === 'user') {
         console.log('Navigating to user dashboard...');
-        navigate('/dashboard');
+        navigate('/');
       } else {
         console.log('Navigating to admin dashboard...');
         navigate('/admindashboard');

@@ -1,10 +1,5 @@
 import React from 'react';
-import Logo from '../../pages/image/logo.png'; // Import your logo image
-import Front from '../../pages/image/Front.jpg'; // Import your front image
-import PainKillers from '../../pages/image/PainKillers.jpg'; // Import your PainKillers image
-import Syrups from '../../pages/image/Syrups.jpg'; // Import your Syrups image
-import Balm from '../../pages/image/Balm.jpg'; // Import your Balm image
-import Tablets from '../../pages/image/Tablet.jpg'; // Import your Tablets image
+import Front from '../../pages/image/Front.jpg';
 import { FaCapsules, FaSyringe, FaMedkit, FaTablets } from 'react-icons/fa';
 
 const AdminDashboardMain = ({ handleNavClick }) => {

@@ -16,7 +16,6 @@ const AdminNavbar = ({ handleNavClick }) => {
   return (
     <nav className='bg-gray-800 p-4'>
       <div className='container mx-auto flex items-center flex-col min-h-screen overflow-hidden'>
-        {/* Your brand logo */}
         <Link
           onClick={() => handleNavClick('dashboard')}
           className='text-white text-xl font-bold flex items-center mb-4'

@@ -20,7 +20,6 @@ const AddItemAdmin = () => {
     e.preventDefault();
 
     try {
-      // Post the new medicine data to the API endpoint
       const response = await axios.post(
         'http://localhost:8080/api/admin/add-medicine',
         formData
