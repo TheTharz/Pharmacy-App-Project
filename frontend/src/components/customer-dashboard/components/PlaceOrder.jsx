@@ -44,7 +44,6 @@ const PlaceOrder = () => {
     // Check if the medicine is already in the receipt
     const existingItem = receipt.find((item) => item.id === medicine.id);
 
-    // If the medicine is not in the receipt, add it with the specified quantity and subtotal
     const newMedicine = {
       ...medicine,
       quantity: quantity,
@@ -52,7 +51,6 @@ const PlaceOrder = () => {
     };
     setReceipt([...receipt, newMedicine]);
 
-    // Reset quantity back to 1 after adding medicine
     setQuantity(1);
   };
 
@@ -61,11 +59,11 @@ const PlaceOrder = () => {
     const filtered = medicines.filter((medicine) =>
       medicine.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
-    setFilteredMedicines(filtered.slice(0, 5)); // Limit to the first 5 items
+    setFilteredMedicines(filtered.slice(0, 5));
   };
 
   const handlePlaceOrder = () => {
-    setShowConfirmation(true); // Show confirmation modal
+    setShowConfirmation(true);
   };
 
   const confirmOrder = () => {
@@ -100,11 +98,12 @@ const PlaceOrder = () => {
       })
       .catch((error) => {
         console.error('Error placing order:', error);
+        alert('Error placing order.' + error);
       });
   };
 
   const cancelOrder = () => {
-    setShowConfirmation(false); // Close the confirmation modal
+    setShowConfirmation(false);
   };
 
   return (
