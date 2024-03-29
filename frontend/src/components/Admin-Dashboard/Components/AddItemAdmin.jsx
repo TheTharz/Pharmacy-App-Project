@@ -40,6 +40,16 @@ const AddItemAdmin = () => {
     }
   };
 
+  const categoryOptions = [
+    { value: 'Pain Relief', label: 'Pain Relief' },
+    { value: 'Antibiotics', label: 'Antibiotics' },
+    { value: 'Anti-inflammatory', label: 'Anti-inflammatory' },
+    { value: 'Cardiovascular', label: 'Cardiovascular' },
+    { value: 'Diabetes Care', label: 'Diabetes Care' },
+    { value: 'Respiratory', label: 'Respiratory' },
+    // Add more categories as needed
+  ];
+
   return (
     <div className='container mx-auto px-4 py-8'>
       <h2 className='text-2xl font-bold mb-4'>Add Medicine - Admin</h2>
@@ -86,13 +96,19 @@ const AddItemAdmin = () => {
         </div>
         <div className='mb-4'>
           <label className='block mb-2'>Category:</label>
-          <input
-            type='text'
+          <select
             className='w-full border rounded py-2 px-3'
             name='category'
             value={formData.category}
             onChange={handleChange}
-          />
+          >
+            <option value=''>Select a category</option>
+            {categoryOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </div>
         <div className='mb-4'>
           <label className='block mb-2'>Image:</label>
