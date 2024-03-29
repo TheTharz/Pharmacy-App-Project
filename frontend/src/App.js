@@ -6,6 +6,7 @@ import Admin from './components/Admin';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import AddItemPage from './pages/AddItems';
+import Prescription from './pages/Prescription';
 
 function App() {
   const userRole = localStorage.getItem('role');
@@ -24,6 +25,7 @@ function App() {
       {userRole === 'user' ? (
         <>
           <Route path='/' element={<Dashboard />} />
+          <Route path='/add-prescription' element={<Prescription />} />
         </>
       ) : null}
 
