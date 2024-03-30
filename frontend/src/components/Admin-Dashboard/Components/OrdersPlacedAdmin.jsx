@@ -5,7 +5,7 @@ const OrderPlacedAdmin = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    // Fetch orders from the API
+    // Fetch orders from the backend api
     axios
       .get('http://localhost:8080/api/admin/get-all-orders')
       .then((response) => {
