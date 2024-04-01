@@ -8,8 +8,6 @@ import AdminDashboard from './pages/AdminDashboard';
 import AddItemPage from './pages/AddItems';
 import Prescription from './pages/Prescription';
 
-
-
 function App() {
   const userRole = localStorage.getItem('role');
 
@@ -18,16 +16,22 @@ function App() {
       {/* For Admin */}
       {userRole === 'admin' ? (
         <>
-          <Route path='/admindashboard' element={<AdminDashboard />} />
+
           
+
+          <Route path='/' element={<AdminDashboard />} />
+          <Route path='/admindashboard' element={<AdminDashboard />} />
+
         </>
       ) : null}
 
       {/* For User */}
       {userRole === 'user' ? (
         <>
-          <Route path='/userdashboard' element={<Dashboard />} />
-          
+
+          <Route path='/' element={<Dashboard />} />
+          <Route path='/add-prescription' element={<Prescription />} />
+
         </>
       ) : null}
 

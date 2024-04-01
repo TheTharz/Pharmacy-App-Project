@@ -1,7 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
 import cat1 from '../../pages/image/cat1.png';
 import cat2 from '../../pages/image/cat2.png';
 import cat3 from '../../pages/image/cat3.png';
+
+import React from 'react';
+import Front from '../../pages/image/Front.jpg';
+
 import { FaCapsules, FaSyringe, FaMedkit, FaTablets } from 'react-icons/fa';
 
 const AdminDashboardMain = ({ handleNavClick, setActiveComponent }) => {

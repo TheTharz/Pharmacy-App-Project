@@ -10,9 +10,12 @@ const AdminNavbar = ({ handleNavClick }) => {
   };
 
   return (
-    
+
     <nav className='bg-white-800 p-4'>
       <div className='container mx-auto flex flex-col items-center min-h-screen overflow-hidden'>
+
+   
+
         <Link
           onClick={() => handleNavClick('dashboard')}
           className='text-white text-xl font-bold flex items-center mb-4'
@@ -71,6 +74,7 @@ const AdminNavbar = ({ handleNavClick }) => {
           Logout
         </button>
       </div>
+  
     </nav>
   );
 };
