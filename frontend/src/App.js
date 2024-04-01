@@ -6,24 +6,37 @@ import Admin from './components/Admin';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import AddItemPage from './pages/AddItems';
+import Prescription from './pages/Prescription';
+
+
 
 function App() {
   const userRole = localStorage.getItem('role');
 
   return (
     <Routes>
-      {userRole === 'admin' && <Route path='/' element={<Admin />} />}
-      {userRole === 'user' && <Route path='/' element={<Dashboard />} />}
+      {/* For Admin */}
+      {userRole === 'admin' ? (
+        <>
+          <Route path='/admindashboard' element={<AdminDashboard />} />
+          
+        </>
+      ) : null}
 
-      {/* For both admin and user should see this */}
+      {/* For User */}
+      {userRole === 'user' ? (
+        <>
+          <Route path='/userdashboard' element={<Dashboard />} />
+          
+        </>
+      ) : null}
+
+      {/* Common Routes */}
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<Login />} />
 
-      {/* For admin */}
-      <Route path='/additem' element={<AddItemPage />} />
-      <Route path='/admindashboard' element={<AdminDashboard />} />
-      {/* <Route path='/about' element={<Admin />} /> */}
-      <Route path='/' element={<Navigate replace to='/login' />} />
+      {/* Redirect to login for unauthorized access */}
+      <Route path='*' element={<Navigate replace to='/login' />} />
     </Routes>
   );
 }

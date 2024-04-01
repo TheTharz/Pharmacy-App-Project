@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { redirect, useNavigate } from 'react-router-dom';
 
 const PlaceOrder = () => {
   const [nic, setNic] = useState('');
@@ -21,6 +22,9 @@ const PlaceOrder = () => {
     lastName: true,
     address: true,
   });
+  const [showPrescriptionPopup, setShowPrescriptionPopup] = useState(false); // State for showing prescription popup
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch all medicines from the API endpoint
@@ -44,15 +48,14 @@ const PlaceOrder = () => {
     // Check if the medicine is already in the receipt
     const existingItem = receipt.find((item) => item.id === medicine.id);
 
-    // If the medicine is not in the receipt, add it with the specified quantity and subtotal
     const newMedicine = {
       ...medicine,
       quantity: quantity,
       subtotal: quantity * medicine.price,
     };
+
     setReceipt([...receipt, newMedicine]);
 
-    // Reset quantity back to 1 after adding medicine
     setQuantity(1);
   };
 
@@ -61,11 +64,11 @@ const PlaceOrder = () => {
     const filtered = medicines.filter((medicine) =>
       medicine.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
-    setFilteredMedicines(filtered.slice(0, 5)); // Limit to the first 5 items
+    setFilteredMedicines(filtered.slice(0, 5));
   };
 
   const handlePlaceOrder = () => {
-    setShowConfirmation(true); // Show confirmation modal
+    setShowConfirmation(true);
   };
 
   const confirmOrder = () => {
@@ -83,28 +86,43 @@ const PlaceOrder = () => {
       totalAmount: totalAmount,
     };
 
-    // Send the order data to the backend
-    axios
-      .post('http://localhost:8080/api/user/place-order', orderData)
-      .then((response) => {
-        console.log('Order placed successfully:', response.data);
-        // Clear the form after successful order placement
-        setNic('');
-        setDob('');
-        setFirstName('');
-        setLastName('');
-        setAddress('');
-        setReceipt([]);
-        setTotalAmount(0);
-        setShowConfirmation(false); // Close the confirmation modal
-      })
-      .catch((error) => {
-        console.error('Error placing order:', error);
-      });
+    //if medicines has medicine with category of pain killers redirect to a add prescription page
+    const hasPainReliefItems = receipt.some(
+      (item) => item.category === 'Pain Relief'
+    );
+
+    if (hasPainReliefItems) {
+      // Redirect to add prescription page
+      navigate('/add-prescription');
+      return;
+    } else {
+      // Send the order data to the backend
+      axios
+        .post('http://localhost:8080/api/user/place-order', orderData)
+        .then((response) => {
+          console.log('Order placed successfully:', response.data);
+          // Clear the form after successful order placement
+          setNic('');
+          setDob('');
+          setFirstName('');
+          setLastName('');
+          setAddress('');
+          setReceipt([]);
+          setTotalAmount(0);
+          setShowConfirmation(false); // Close the confirmation modal
+
+          //alert
+          alert('Order placed successfully');
+        })
+        .catch((error) => {
+          console.error('Error placing order:', error);
+          alert('Error placing order.' + error);
+        });
+    }
   };
 
   const cancelOrder = () => {
-    setShowConfirmation(false); // Close the confirmation modal
+    setShowConfirmation(false);
   };
 
   return (

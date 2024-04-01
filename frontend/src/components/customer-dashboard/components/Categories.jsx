@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import MedicineCard from '../../MedicineCard/MedicineCard.jsx'; // Assuming MedicineCard.js is in the same directory
+import MedicineCard from '../../MedicineCard/MedicineCard.jsx';
 
 const Categories = () => {
   const [medicines, setMedicines] = useState([]);
@@ -16,7 +16,7 @@ const Categories = () => {
         );
         console.log(response.data);
         setMedicines(response.data.data);
-        setFilteredMedicines(response.data.data); // Initialize filteredMedicines with all medicines
+        setFilteredMedicines(response.data.data);
       } catch (error) {
         console.error('Error fetching medicines:', error);
       }
@@ -28,19 +28,18 @@ const Categories = () => {
   // Function to filter medicines based on the selected category
   const filterMedicines = (category) => {
     if (category === 'All') {
-      setFilteredMedicines(medicines); // If 'All' category is selected, show all medicines
-      setCategoryHeader('All Medicine'); // Set the header text to 'All Medicine'
+      setFilteredMedicines(medicines);
+      setCategoryHeader('All Medicine');
     } else {
       const filtered = medicines.filter(
         (medicine) => medicine.category === category
       );
-      setFilteredMedicines(filtered); // Filter medicines based on the selected category
-      setCategoryHeader(`${category} Medicine`); // Set the header text to the selected category
+      setFilteredMedicines(filtered);
+      setCategoryHeader(`${category} Medicine`);
     }
-    setSelectedCategory(category); // Set the selected category
+    setSelectedCategory(category);
   };
 
-  // Categories provided directly in the component
   const categories = ['All', 'Tablet', 'Syrups', 'Balm'];
 
   return (
