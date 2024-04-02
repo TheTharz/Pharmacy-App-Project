@@ -1,41 +1,50 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import Main from './components/Main';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import Admin from './components/Admin';
-import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
-import AddItemPage from './pages/AddItems';
+import Dashboard from './pages/Dashboard';
 import Prescription from './pages/Prescription';
 
 function App() {
-  const userRole = localStorage.getItem('role');
+  const [userRole, setUserRole] = useState(localStorage.getItem('role'));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const role = localStorage.getItem('role');
+      console.log('Role stored in localStorage:', role);
+
+      setUserRole(role);
+    }, 1); // Check every 1 second
+
+    return () => clearInterval(interval); // Clean up interval on unmount
+  }, []);
 
   return (
-    <Routes>
-      {/* For Admin */}
-      {userRole === 'admin' ? (
-        <>
-          <Route path='/' element={<AdminDashboard />} />
+    <BrowserRouter>
+      <Routes>
+        {/* For Admin */}
+        {userRole === 'admin' && (
           <Route path='/admindashboard' element={<AdminDashboard />} />
-        </>
-      ) : null}
+        )}
 
-      {/* For User */}
-      {userRole === 'user' ? (
-        <>
-          <Route path='/' element={<Dashboard />} />
-          <Route path='/add-prescription' element={<Prescription />} />
-        </>
-      ) : null}
+        {/* For User */}
+        {userRole === 'user' && (
+          <>
+            <Route path='/userdashboard' element={<Dashboard />} />
+            <Route path='/add-prescription' element={<Prescription />} />
+          </>
+        )}
 
-      {/* Common Routes */}
-      <Route path='/signup' element={<Signup />} />
-      <Route path='/login' element={<Login />} />
+        {/* Common Routes */}
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
 
-      {/* Redirect to login for unauthorized access */}
-      <Route path='*' element={<Navigate replace to='/login' />} />
-    </Routes>
+        {/* Redirect to login for unauthorized access */}
+        <Route path='*' element={<Navigate replace to='/login' />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
