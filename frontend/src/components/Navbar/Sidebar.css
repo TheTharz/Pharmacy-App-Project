@@ -1,0 +1,48 @@
+.btn.nav-link {
+    background-color: transparent;
+    
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.7rem 4rem;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 10px;
+    text-align: center;
+   
+}
+
+.btn.nav-link:hover {
+    background-color: #369FFF;
+    color: rgb(255, 255, 255);
+    border: 1px solid #369FFF;
+}
+
+
+.space{
+    padding-top: 20px;
+}
+
+.navbar-sidebar{
+    border-right: 4px solid #a8a8a8;
+    height: 100%;
+     width: 230px;
+    background: #ffffff ;
+
+}
+.header{
+    font-size: 30px;
+    font-weight: bold;
+    color: #369FFF;
+
+}
+
+.btn.nav-link:active {
+    background-color: darkblue;
+  }
+
+  .iconbox{
+    width: 1rem;
+    height: 1rem;
+    background-color: black;
+  }
