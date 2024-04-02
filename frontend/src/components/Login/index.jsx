@@ -25,13 +25,24 @@ const Login = () => {
         res.message === 'Logged in as admin' ? 'admin' : 'user'
       );
       console.log('Role stored in localStorage:', localStorage.getItem('role')); // Log the role
+      // Add a delay of 20ms before navigating
+      setTimeout(() => {
+        // Redirect after setting local storage values
+        if (localStorage.getItem('role') === 'admin') {
+          console.log('Navigating to admin dashboard...');
+          navigate('/admindashboard');
+        } else {
+          console.log('Navigating to user dashboard...');
+          navigate('/userdashboard');
+        }
+      }, 20);
 
-      if (localStorage.getItem('role') === 'user') {
-        console.log('Navigating to user dashboard...');
-        navigate('/');
-      } else {
+      if (localStorage.getItem('role') === 'admin') {
         console.log('Navigating to admin dashboard...');
         navigate('/admindashboard');
+      } else {
+        console.log('Navigating to user dashboard...');
+        navigate('/userdashboard');
       }
     } catch (error) {
       if (

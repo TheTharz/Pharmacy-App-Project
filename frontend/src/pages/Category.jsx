@@ -1,6 +1,7 @@
 import AdminNavbar from '../components/AdminNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AdminDashboard.css';
+import CategoryPage from './pages/Category';
 
 const categoriy = () => {
   const handleLogout = () => {
