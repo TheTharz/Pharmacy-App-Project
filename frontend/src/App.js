@@ -22,6 +22,7 @@ function App() {
   }, []);
 
   return (
+
     <BrowserRouter>
       <Routes>
         {/* For Admin */}
@@ -45,6 +46,8 @@ function App() {
         <Route path='*' element={<Navigate replace to='/login' />} />
       </Routes>
     </BrowserRouter>
+
+   
   );
 }
 

@@ -13,7 +13,9 @@ const Navbar = ({ handleNavClick }) => {
 
   return (
     <nav className='bg-white-800 p-4'>
+
       <div className='container mx-auto flex flex-col items-center min-h-screen overflow-hidden '>
+
         <Link
           onClick={() => handleNavClick('dashboard')}
           className='text-white text-xl font-bold flex items-center mb-4'
@@ -23,8 +25,10 @@ const Navbar = ({ handleNavClick }) => {
 
         <div className='mb-10'></div>
         <ul className='flex flex-col items-center space-y-4 flex-1'>
+
           <li>
             <Link
+
               className='flex items-center text-white hover:text-gray-300 transition duration-300 rounded-full px-4 py-2 bg-blue-500 hover:bg-blue-700'
               onClick={() => handleNavClick('dashboard')}
             >
@@ -33,8 +37,10 @@ const Navbar = ({ handleNavClick }) => {
             </Link>
           </li>
 
+
           <li>
             <Link
+
               className='flex items-center text-white hover:text-gray-300 transition duration-300 rounded-full px-4 py-2 bg-blue-500 hover:bg-blue-700'
               onClick={() => handleNavClick('categories')}
             >
@@ -43,8 +49,10 @@ const Navbar = ({ handleNavClick }) => {
             </Link>
           </li>
 
+
           <li>
             <Link
+
               className='flex items-center text-white hover:text-gray-300 transition duration-300 rounded-full px-4 py-2 bg-blue-500 hover:bg-blue-700'
               onClick={() => handleNavClick('placeorder')}
             >
